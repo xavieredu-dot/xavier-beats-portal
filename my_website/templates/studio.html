@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="icon" type="image/png" href="/static/my_logo_nobg.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xavier Beats | The Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container" style="background: #111; color: white;">
+        <h2>Welcome to the Studio, <strong>{{ user }}</strong></h2>
+        <hr style="border:0.5px solid #333; margin: 20px 0;">
+
+        <div class="album-section">
+            <h2>LATEST RELEASE: LOVE OF NATURE</h2>
+            <p style="color: #e98203; letter-spacing: 2px">ALBUM BY XAVIER BEATS</p>
+            <a href="https://open.spotify.com/embed/album/0K9NdVXYyPtiP2J8HuAIb2?si=AL3KqPP8SMi0gjBeOQm5pQ"
+                class="spotify-link">Follow on Spotify</a>
+            <div style="margin: 30px 0;">
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/album/0K9NdVXYyPtiP2J8HuAIb2?si=-RXUtR3MRRStlsC8A8P0Nw"
+                    width="100%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                </iframe>
+
+            </div>
+        </div>
+        <hr style="border: 0.5px solid #333; margin: 30px 0;">
+        <div class="comment-section" style="text-align: left;">
+            <h3>Feedback</h3>
+            <form action="/post_comment" method="POST" style="margin-bottom: 20px;">
+                <textarea name="comment_text" placeholder="What do you think of this beat?"
+                    style="width: 100%; height: 60px; background: #222; color: white; border: 1px solid #444; padding: 10px;"
+                    required></textarea>
+                <button type="submit" style="margin-top: 10px; width: auto;">Post Comment</button>
+            </form>
+            <div id="comment-display" {% for entry in comments %}>
+                <div style="border-left: 2px solid #e98203; padding-left: 10px; margin-bottom: 15px;">
+                    <p style="margin: 0; font-weight: bold; color: #e98203;">{{ entry.user }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 30px;">
+        <a href="/logout"
+            style="color: #e98203; text-decoration: none; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">
+            Log Out / Exit Studio
+        </a>
+
+        <footer class="social-footer">
+            <p>CONNECT WITH XAVIER BEATS</p>
+            <div class="social-links">
+                <a href="https://youtube.com/@prodbyxavier?si=g9tSBS790p7VkB44" target="_blank">YOUTUBE</a>
+                <a href="https://www.instagram.com/xavier.btz/" target="_blank">INSTAGRAM</a>
+                <a href="https://www.tiktok.com/@xavier_btz" target="_blank">TIKTOK</a>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+
+    </div>
+</body>
+
+</html>
