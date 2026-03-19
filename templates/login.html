@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Xavier Beats | Entry</title>
+    <link rel="icon" type="image/png" href="/static/my_logo_nobg.png">
+</head>
+
+<body style="background-color: #000; color: #fff;">
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='my_logo_nobg.png') }}" alt="my logo" class="login-image">
+
+        <h1>Xavier Beats</h1>
+        <p>Please enter your name to enter the studio.</p>
+        <form action="/login" method="POST">
+            <input type="text" name="visitor_name" placeholder="Artist/Listener Name" required>
+            <button type="submit">ENTER</button>
+        </form>
+    </div>
+</body>
+
+</html>

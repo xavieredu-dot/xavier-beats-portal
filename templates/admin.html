@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Xavier Beats | Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="/static/my_logo_nobg.png">
+</head>
+
+<body>
+    <div class="container" style="max-width: 800px;">
+        <h1>Admin Dashboard</h1>
+
+        <div style="text-align: left;">
+            <h3>Recent Visitors</h3>
+            <uL>
+                {% for name in visitors %}
+                <li>{{ name }}</li>
+                {% endfor %}
+            </uL>
+
+            <h3>All Feedback</h3>
+            {% for c in comments %}
+            <p><strong>{{ c.user }}:</strong> {{ c.text }}</p>
+            {% endfor %}
+        </div>
+
+        <a href="/" class="logout-btn" style="margin-top: 20px;">Back to Studio</a>
+
+    </div>
+</body>
+
+</html>
